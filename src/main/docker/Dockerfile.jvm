@@ -1,0 +1,59 @@
+FROM registry.access.redhat.com/ubi8/openjdk-17:1.18 
+
+ENV LANGUAGE='en_US:en'
+
+ENV APP_PORT=8082
+# mongodb://root:pass123@observai-mongodb-community-0.observai-mongodb-community-svc.observability-mongodb.svc.cluster.local:27017,observai-mongodb-community-1.observai-mongodb-community-svc.observability-mongodb.svc.cluster.local:27017,observai-mongodb-community-2.observai-mongodb-community-svc.observability-mongodb.svc.cluster.local:27017
+ENV MONGODB_URL='mongodb://root:pass123@observai-mongodb-community-0.observai-mongodb-community-svc.observability-mongodb.svc.cluster.local:27017,observai-mongodb-community-1.observai-mongodb-community-svc.observability-mongodb.svc.cluster.local:27017,observai-mongodb-community-2.observai-mongodb-community-svc.observability-mongodb.svc.cluster.local:27017/admin?ssl=false'
+
+ENV TRACE_BOOTSTRAP_URL='observai-kafka-bootstrap.observability-kafka.svc.cluster.local:9092'
+ENV TRACE_TOPIC='observai_main_metrics_1'
+ENV TRACE_OFFSET_RESET='latest'
+
+ENV LOG_BOOTSTRAP_URL='observai-kafka-bootstrap.observability-kafka.svc.cluster.local:9092'
+ENV LOG_TOPIC='observai_main_logs_1'
+ENV LOG_OFFSET_RESET='latest'
+
+ENV METRIC_BOOTSTRAP_URL='observai-kafka-bootstrap.observability-kafka.svc.cluster.local:9092'
+ENV METRIC_TOPIC='observai_main_traces_1'
+ENV METRIC_OFFSET_RESET='latest'
+
+ENV KEPLER_BOOTSTRAP_URL='observai-kafka-bootstrap.observability-kafka.svc.cluster.local:9092'
+ENV KEPLER_TOPIC='kepler_zaga_vm'
+ENV KEPLER_OFFSET_RESET='latest'
+
+ENV PODMETRIC_BOOTSTRAP_URL='infra-kafka-bootstrap.observability-kafka.svc.cluster.local:9092'
+ENV PODMETRIC_TOPIC='kubelet_pod_stats'
+ENV PODMETRIC_OFFSET_RESET='latest'
+
+ENV NODEMETRIC_BOOTSTRAP_URL='infra-kafka-bootstrap.observability-kafka.svc.cluster.local:9092'
+ENV NODEMETRIC_TOPIC='kubelet_node_stats'
+ENV NODEMETRIC_OFFSET_RESET='latest'
+
+ENV ALERT_BOOTSTRAP_URL='observai-kafka-bootstrap.observability-kafka.svc.cluster.local:9092'
+ENV ALERT_TOPIC='AlertTopic'
+ENV ALERT_OFFSET_RESET='latest'
+
+ENV EVENT_BOOTSTRAP_URL='infra-kafka-bootstrap.observability-kafka.svc.cluster.local:9092'
+ENV EVENT_TOPIC='events_data'
+ENV EVENT_OFFSET_RESET='latest'
+
+
+ENV CLUSTER_UTILIZATION_BOOTSTRAP_URL='infra-kafka-bootstrap.observability-kafka.svc.cluster.local:9092'
+ENV CLUSTER_UTILIZATION_TOPIC='kubelet_node_stats'
+ENV CLUSTER_UTILIZATION_OFFSET_RESET='latest'
+
+# We make four distinct layers so if there are application changes the library layers can be re-used
+COPY --chown=185 target/quarkus-app/lib/ /deployments/lib/
+COPY --chown=185 target/quarkus-app/*.jar /deployments/
+COPY --chown=185 target/quarkus-app/app/ /deployments/app/
+COPY --chown=185 target/quarkus-app/quarkus/ /deployments/quarkus/
+
+EXPOSE 8082
+USER 185
+ENV AB_JOLOKIA_OFF=""
+ENV JAVA_OPTS="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager "
+ENV JAVA_APP_JAR="/deployments/quarkus-run.jar"
+
+
+ENTRYPOINT ["/opt/jboss/container/java/run/run-java.sh"]

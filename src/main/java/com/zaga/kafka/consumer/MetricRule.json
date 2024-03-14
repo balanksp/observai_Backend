@@ -1,0 +1,34 @@
+{
+  "serviceName": "vendor-srv-2",
+  "roles": ["admin", "user"],
+  "rules": [
+    {
+      "cpuLimit": 0.0000001,
+      "duration": 0,
+      "expiryDateTime": {
+        "$date": "2023-12-15T17:00:00.000Z"
+      },
+      "memoryLimit": 2048,
+      "reoccuringCount": 0,
+      "ruleType": "metric",
+      "severityText": [],
+      "startDateTime": {
+        "$date": "2023-12-15T17:30:00.000Z"
+      }
+    },
+    {
+      "cpuLimit": 0,
+      "duration": 30,
+      "expiryDateTime": {
+        "$date": "2023-12-15T17:00:00.000Z"
+      },
+      "memoryLimit": 0,
+      "reoccuringCount": 0,
+      "ruleType": "trace",
+      "severityText": [],
+      "startDateTime": {
+        "$date": "2023-12-15T17:30:00.000Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "resourceLogs": [
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "container.id",
+            "value": {
+              "intValue": 0,
+              "stringValue": "7ce0dec65c5f53dbeacb87f31080f2775aa550d363df04a2df35665f9e7bb2f1"
+            }
+          },
+          {
+            "key": "host.arch",
+            "value": {
+              "intValue": 0,
+              "stringValue": "amd64"
+            }
+          },
+          {
+            "key": "host.name",
+            "value": {
+              "intValue": 0,
+              "stringValue": "order-srv-2-55f4c8c9d7-z96s5"
+            }
+          },
+          {
+            "key": "k8s.container.name",
+            "value": {
+              "intValue": 0,
+              "stringValue": "order-srv-2"
+            }
+          },
+          {
+            "key": "k8s.deployment.name",
+            "value": {
+              "intValue": 0,
+              "stringValue": "order-srv-2"
+            }
+          },
+          {
+            "key": "k8s.namespace.name",
+            "value": {
+              "intValue": 0,
+              "stringValue": "observai-main"
+            }
+          },
+          {
+            "key": "k8s.node.name",
+            "value": {
+              "intValue": 0,
+              "stringValue": "52-54-00-72-02-2a"
+            }
+          },
+          {
+            "key": "k8s.pod.name",
+            "value": {
+              "intValue": 0,
+              "stringValue": "order-srv-2-55f4c8c9d7-z96s5"
+            }
+          },
+          {
+            "key": "k8s.replicaset.name",
+            "value": {
+              "intValue": 0,
+              "stringValue": "order-srv-2-55f4c8c9d7"
+            }
+          },
+          {
+            "key": "os.description",
+            "value": {
+              "intValue": 0,
+              "stringValue": "Linux 5.14.0-284.43.1.el9_2.x86_64"
+            }
+          },
+          {
+            "key": "os.type",
+            "value": {
+              "intValue": 0,
+              "stringValue": "linux"
+            }
+          },
+          {
+            "key": "process.command_args",
+            "value": {
+              "arrayValue": {
+                "values": [
+                  {
+                    "intValue": 0,
+                    "stringValue": "/usr/lib/jvm/java-11-openjdk-11.0.18.0.10-2.el8_7.x86_64/bin/java"
+                  },
+                  {
+                    "intValue": 0,
+                    "stringValue": "-jar"
+                  },
+                  {
+                    "intValue": 0,
+                    "stringValue": "app.jar"
+                  }
+                ]
+              },
+              "intValue": 0
+            }
+          },
+          {
+            "key": "process.executable.path",
+            "value": {
+              "intValue": 0,
+              "stringValue": "/usr/lib/jvm/java-11-openjdk-11.0.18.0.10-2.el8_7.x86_64/bin/java"
+            }
+          },
+          {
+            "key": "process.pid",
+            "value": {
+              "intValue": 1
+            }
+          },
+          {
+            "key": "process.runtime.description",
+            "value": {
+              "intValue": 0,
+              "stringValue": "Red Hat, Inc. OpenJDK 64-Bit Server VM 11.0.18+10-LTS"
+            }
+          },
+          {
+            "key": "process.runtime.name",
+            "value": {
+              "intValue": 0,
+              "stringValue": "OpenJDK Runtime Environment"
+            }
+          },
+          {
+            "key": "process.runtime.version",
+            "value": {
+              "intValue": 0,
+              "stringValue": "11.0.18+10-LTS"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "intValue": 0,
+              "stringValue": "order-srv-2"
+            }
+          },
+          {
+            "key": "telemetry.auto.version",
+            "value": {
+              "intValue": 0,
+              "stringValue": "1.32.0"
+            }
+          },
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "intValue": 0,
+              "stringValue": "java"
+            }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": {
+              "intValue": 0,
+              "stringValue": "opentelemetry"
+            }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": {
+              "intValue": 0,
+              "stringValue": "1.32.0"
+            }
+          }
+        ]
+      },
+      "schemaUrl": "https://opentelemetry.io/schemas/1.21.0",
+      "scopeLogs": [
+        {
+          "logRecords": [
+            {
+              "attributes": [
+                {
+                  "key": "user-id",
+                  "value": {
+                    "stringValue": "7708"
+                  }
+                }
+              ],
+              "body": {
+                "stringValue": "Order details created successfully: OrderEntity(id=60, productId=0, productName=string, orderId=0, customerId=0, customerName=string, customerPhoneNumber=0, modelNo=string, productAddress=string, quantity=0)"
+              },
+              "flags": 1,
+              "observedTimeUnixNano": "1703146666278932000",
+              "severityNumber": 9,
+              "severityText": "ERROR",
+              "spanId": "64347688693de4b8",
+              "timeUnixNano": "1703146666278917000",
+              "traceId": "fb5fdc87a61f215882bab819132e676c"
+            }
+          ],
+          "scope": {
+            "name": "com.zaga.OrderProj.OrderService"
+          }
+        },
+        {
+          "logRecords": [
+            {
+              "attributes": [
+                {
+                  "key": "user-id",
+                  "value": {
+                    "stringValue": "7708"
+                  }
+                }
+              ],
+              "body": {
+                "stringValue": "Received request to create order: OrderEntity(id=60, productId=0, productName=string, orderId=0, customerId=0, customerName=string, customerPhoneNumber=0, modelNo=string, productAddress=string, quantity=0)"
+              },
+              "flags": 1,
+              "observedTimeUnixNano": "1703146666260157000",
+              "severityNumber": 9,
+              "severityText": "ERROR",
+              "spanId": "64347688693de4b8",
+              "timeUnixNano": "1703146666260147000",
+              "traceId": "fb5fdc87a61f215882bab819132e676c"
+            },
+            {
+              "attributes": [
+                {
+                  "key": "user-id",
+                  "value": {
+                    "stringValue": "7708"
+                  }
+                }
+              ],
+              "body": {
+                "stringValue": "Order created successfully: OrderEntity(id=60, productId=0, productName=string, orderId=0, customerId=0, customerName=string, customerPhoneNumber=0, modelNo=string, productAddress=string, quantity=0)"
+              },
+              "flags": 1,
+              "observedTimeUnixNano": "1703146666279661000",
+              "severityNumber": 9,
+              "severityText": "ERROR",
+              "spanId": "64347688693de4b8",
+              "timeUnixNano": "1703146666279656000",
+              "traceId": "fb5fdc87a61f215882bab819132e676c"
+            }
+          ],
+          "scope": {
+            "name": "com.zaga.OrderProj.OrderController"
+          }
+        }
+      ]
+    }
+  ]
+}
